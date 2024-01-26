@@ -13,11 +13,17 @@ import random
 import time
 
 def randmouse():
-    # Move the mouse cursor randomly
     x_offset = random.randint(-250, 250)
     y_offset = random.randint(-250, 250)
-    pyautogui.moveRel(x_offset, y_offset, duration=0.25)
-    time.sleep(0.1)  # 1 second delay
+
+    # Limit the mouse movement within the screen boundaries
+    x, y = pyautogui.position()
+    new_x = max(0, min(pyautogui.size().width - 1, x + x_offset))
+    new_y = max(0, min(pyautogui.size().height - 1, y + y_offset))
+
+    pyautogui.moveTo(new_x, new_y, duration=0.25)
+    time.sleep(0.1)
+
 
 for i in range(10000000):
     if keyboard.is_pressed('e'):
