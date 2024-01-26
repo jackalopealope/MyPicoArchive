@@ -12,6 +12,8 @@ except:
 import random
 import time
 
+pyautogui.FAILSAFE = False
+
 def randmouse():
     x_offset = random.randint(-250, 250)
     y_offset = random.randint(-250, 250)
