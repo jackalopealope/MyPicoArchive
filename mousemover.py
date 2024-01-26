@@ -19,7 +19,7 @@ def randmouse():
     pyautogui.moveRel(x_offset, y_offset, duration=0.25)
     time.sleep(0.1)  # 1 second delay
 
-while True:
+for i in range(10000000):
     if keyboard.is_pressed('e'):
         if keyboard.is_pressed('n'):
             if keyboard.is_pressed('d'):
